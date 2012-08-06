@@ -1,0 +1,9 @@
+#erro{
+	display: none;
+}
+
+textarea, .resposta {
+	overflow: auto;
+	height: 150px;
+	width: 350px;
+}

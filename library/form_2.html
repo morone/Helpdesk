@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="../css/easy.css" media="screen" />
+
+<style>
+
+/* COPY START HERE */
+
+	.form fieldset{border:none;margin:0;padding:0;background:#ccc;}
+	.form legend{display:none;}
+	.form div{clear:both;margin:.25em 0;}
+	.form label{display:block;}
+	.form .field{padding:3px;width:250px;}
+	.form .area{padding:3px;width:580px;}
+	.form select{padding:3px;width:256px;}
+	
+/* COPY END HERE */	
+	
+</style>
+
+<div id="container">
+<div class="main">
+
+<!-- COPY START HERE -->
+
+<form action="/" method="post" class="form">	
+	
+	<fieldset class="cols"><legend>Contact form</legend>
+		<div class="col first">
+			<label for="firstname">First Name</label>
+			<input type="text" name="firstname" id="firstname" size="30" class="field required" />
+		</div>
+		<div class="col">
+			<label for="lastname">Last Name</label>
+			<input type="text" name="lastname" id="lastname" size="30" class="field" />
+		</div>
+		<div class="col first">
+			<label for="address">Address</label>
+			<input type="text" name="address" id="address" size="30" class="field" />
+		</div>
+		<div class="col">
+			<label for="url">URL</label>
+			<input type="text" name="url" id="url" size="30" class="field required url" />
+		</div>
+		<div class="col first">
+			<label for="email">Email</label>
+			<input type="text" name="email" id="email" size="30" class="field required email" />
+		</div>	
+		<div class="col">
+			<label for="phonenumber">Phone Number</label>
+			<input type="text" name="phonenumber" id="phonenumber" size="30" class="field" />
+		</div>		
+		<div class="col first">
+			<label for="city">City</label>
+			<select name="city" id="city" class="select">
+				<option>New York</option>
+				<option>London</option>
+				<option>Paris</option>
+				<option>Tokio</option>
+				<option>Sydney</option>
+			</select>
+		</div>
+		<div class="col">
+			<label for="country">Country</label>
+			<select name="country" class="select">
+				<option>USA</option>
+				<option>UK</option>
+				<option>France</option>
+				<option>Japan</option>
+				<option>Australia</option>
+			</select>
+		</div>												
+		<div>
+			<label for="message">Message</label>
+			<textarea name="message" id="message" cols="30" rows="10" class="area"></textarea>
+		</div>					
+		<div class="submit"><button type="submit">Submit</button></div>					
+	</fieldset>
+	
+</form>		
+
+<!-- COPY END HERE -->
+
+</div>
+</div>

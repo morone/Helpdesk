@@ -1,0 +1,54 @@
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/easy.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<link rel="stylesheet" href="../css/easy.css" media="screen" />
+
+<style>
+
+/* COPY START HERE */
+		
+	form#searchForm{
+		margin:0;
+		padding:1em 10px;
+		background:#f1f1f1;
+		float:left;
+		position:absolute;
+		top:2em;
+		right:0;
+		}		
+	#searchForm .field{
+		border:1px solid #999;
+		padding:5px;
+		width:150px;
+		float:left;
+		}		
+	#searchForm button{
+		display:inline;
+		float:left;
+		background:#ccc; /* place search icon here */
+		height:26px;
+		width:26px;
+		margin-left:5px;
+		}		
+
+/* COPY END HERE */	
+	
+</style>
+
+<div id="container">
+<div class="main">
+
+<!-- COPY START HERE -->
+
+<form id="searchForm" action="/" method="post">	
+				
+	<label for="keyword">Search</label>
+	<input type="text" name="keyword" id="keyword" size="30" class="field label" />
+	<button type="submit" class="graphic">Go</button>		
+	
+</form>	
+
+<!-- COPY END HERE -->
+
+</div>
+</div>

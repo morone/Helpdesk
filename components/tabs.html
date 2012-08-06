@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Tabs Easy front-end framework</title>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="imagetoolbar" content="no" />
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="../css/easy.css" media="screen" />
+<link rel="stylesheet" href="../css/easyprint.css" media="print" />
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/easy.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+
+<style>
+
+/* Copy this CSS code into your stylesheet and modify accordingly  */
+/* NOTE: this CSS code presumes that you are using ".tabs" as a class name  */
+
+.tabs{
+	margin:0;
+	}
+.tabs li{
+	float:left;
+	margin:0 2px 0 0;
+	list-style:none;
+	}
+.tabs li a{
+	float:left;
+	line-height:30px;
+	height:30px;
+	padding:0 20px;
+	text-decoration:none !important;
+	border:1px solid #eee;
+	background:#fff;
+	}
+.tabs li.selected a{
+	background:#eee;
+	}
+.tabs li a:focus{outline:none;}
+.tab{
+	height:250px;
+	background:#eee;
+	padding:20px;
+	}
+
+</style>
+
+</head>
+<body>
+<div id="container">
+	
+	<div id="header">
+		
+		<h1>Easy front-end framework</h1>
+		
+		<ul id="nav">
+			<li><a href="http://easyframework.com">Home</a></li>
+			<li><a href="http://easyframework.com/overview.php">Overview</a>
+				<ul>
+					<li><a href="#">Sub-navigation item</a></li>
+					<li><a href="#">Sub-navigation item</a></li>
+					<li><a href="#">Sub-navigation item</a></li>
+					<li><a href="#">Sub-navigation item</a></li>	
+				</ul>
+			</li>
+			<li><a href="http://easyframework.com/documentation.php">Documentation</a>
+				<ul>
+					<li><a href="#">Sub-navigation item</a></li>
+					<li><a href="#">Sub-navigation item</a></li>
+					<li><a href="#">Sub-navigation item</a></li>
+					<li><a href="#">Sub-navigation item</a></li>	
+				</ul>			
+			</li>
+			<li><a href="http://easyframework.com/demo.php">Demo</a></li>
+			<li><a href="http://easyframework.com/contact.php">Contact</a></li>
+		</ul>
+
+	</div>
+
+	<div class="content">
+    
+   	  <h1>Tabs Demo</h1>
+      
+      <!-- TABS START -->
+      
+      <ul class="tabs fixed">
+        <li><a href="#tab1">Tab 1</a></li>
+        <li><a href="#tab2">Tab 2</a></li>
+        <li><a href="#tab3">Tab 3</a></li>
+        <li><a href="#tab4">Tab 4</a></li>	
+      </ul>
+      
+      <div class="tab" id="tab1">
+      	<h2>This is tab 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis dui nec eros varius 
+			ac molestie ante malesuada. Duis sed justo et sem hendrerit suscipit et ac eros. </p>
+      </div>
+      
+      <div class="tab" id="tab2">
+      	<h2>This is tab 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis dui nec eros varius 
+			ac molestie ante malesuada. Duis sed justo et sem hendrerit suscipit et ac eros. </p>
+      </div>
+      
+      <div class="tab" id="tab3">
+      	<h2>This is tab 3</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis dui nec eros varius 
+			ac molestie ante malesuada. Duis sed justo et sem hendrerit suscipit et ac eros. </p>
+      </div>
+      
+      <div class="tab" id="tab4">
+      	<h2>This is tab 4</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis dui nec eros varius 
+			ac molestie ante malesuada. Duis sed justo et sem hendrerit suscipit et ac eros. </p>
+      </div>
+      
+      <!-- TABS END -->
+      
+	</div>
+	
+	<div id="footer">
+		<p>&copy; Alen Grakalic Easy front-end framework (Read <a href="http://easyframework.com/license.php">license agreement</a>)<br/>
+		Made with <a href="http://easyframework.com">Easy</a></p>
+	</div>
+	
+</div>
+</body>
+</html>
