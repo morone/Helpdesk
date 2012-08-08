@@ -2,8 +2,20 @@
 	display: none;
 }
 
+#deletar{
+	cursor: pointer;
+}
+
 textarea, .resposta {
 	overflow: auto;
 	height: 150px;
 	width: 350px;
+}
+
+
+#resposta1{
+	background-color: #E8E8E8;
+}
+#resposta0{
+	background-color: #F5F5F5;
 }

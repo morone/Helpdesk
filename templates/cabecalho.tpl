@@ -20,12 +20,12 @@
 	
 	<div id="header">
 		
-		<h1>Comos - Helpdesk - {{USUARIO}}</h1>
+		<h1>Helpdesk - {{USUARIO}}</h1>
 		
 		<ul id="nav">
 			<li><a href="index.php">Abrir</a></li>
 			<li><a href="atender.php">Atender</a></li>
-			<li><a href="#">Consultar</a></li>
+			<li><a href="consultar.php">Consultar</a></li>
 		</ul>
 
 	</div>

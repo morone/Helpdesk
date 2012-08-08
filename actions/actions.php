@@ -9,9 +9,11 @@
 		switch ($_GET['action']):
 			case 'getRespostas':
 				$respostas = $chamado->GetRespostas($_GET['idChamado']);
+				$i=1;
 				foreach($respostas as $resp):
-					$tplRespostas .= "<h3>". $resp['data'] ." - " . $usuario->GetUserByID($resp['usuario']) . " <img id='deletar' src='images/delete.png' /></h3>";
-					$tplRespostas .= "<p>" . utf8_encode($resp['mensagem']) . "</p>";
+					$tplRespostas .= "<div id='resposta".($i%2)."'><h3>". $resp['data'] ." - " . $usuario->GetUserByID($resp['usuario']) . " <a href='?action=delresp&resposta=".$resp['id_resposta']."&id=".$_GET['idChamado']."'>". ($i!=count($respostas)&& !$chamado->isFinalizado($_GET['idChamado'])?"<img id='deletar' name='".$resp['data']."' src='images/delete.png' />":"") . "</a></h3>";
+					$tplRespostas .= "" . utf8_encode($resp['mensagem']) . "</div>";
+					$i++;
 				endforeach;
 				echo $tplRespostas;
 				break;

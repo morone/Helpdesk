@@ -1,5 +1,5 @@
 <?php
-include "usuarioDAO.php";
+include_once "usuarioDAO.php";
 
 class Usuario{
 	

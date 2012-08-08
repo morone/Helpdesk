@@ -1,8 +1,8 @@
 <?php
 
-include 'class/template.php';
-include 'class/Usuario.php';
-include 'class/Chamado.php';
+include_once 'class/template.php';
+include_once 'class/Usuario.php';
+include_once 'class/Chamado.php';
 
 	$usuario = new Usuario();
 	$chamado = new Chamado();
@@ -22,8 +22,10 @@ include 'class/Chamado.php';
 	$todosChamados =  $chamado->GetTodosChamados($usuario->GetId());
 	if($todosChamados !=""):
 		foreach($todosChamados as $helpdesk):
-			$tplHelpdeskAberto .= '<p><a href="detalhe.php?id='.$helpdesk[0].'" class="tooltip" title="'.utf8_encode($helpdesk[2]).'">'. $helpdesk[0] .'</a> - OS '. $helpdesk[1] .' - '.utf8_encode($helpdesk[2]).' </p>';
+			$tplHelpdeskAberto .= '<p><a href="detalhe.php?id='.$helpdesk['id_chamado'].'" class="tooltip" title="'.utf8_encode($helpdesk['titulo']).'">'. $helpdesk['id_chamado'] .'</a> - OS '. $helpdesk['os'] .' - '.utf8_encode($helpdesk['titulo']).' </p>';
 		endforeach;
+	else:
+		$tplHelpdeskAberto = "<blockquote>Nenhum helpdesk aberto no momento.</blockquote>";
 	endif;
 	
 	
