@@ -25,7 +25,7 @@ class ChamadoDAO{
 	}
 	
 	public function CriarRespostaDAO($idChamado, $idUsuario, $mensagem){
-		return $this->_conexao->query("INSERT INTO tb_resposta_chamado(id_chamado, id_usuario, mensagem, data) VALUES(".$idChamado.", ".$idUsuario.", '".nl2br($mensagem)."', CURDATE())");
+		return $this->_conexao->query("INSERT INTO tb_resposta_chamado(id_chamado, id_usuario, mensagem, data) VALUES(".$idChamado.", ".$idUsuario.", '".nl2br($mensagem)."', '".date("Y-m-d H:i:s")."')");
 		mysqli_close($this->_conexao);
 	}
 	
@@ -44,7 +44,7 @@ class ChamadoDAO{
 			resp.mensagem,
 			usuario.nome,
 			usuario.ramal,
-			resp.data
+			date_format(resp.data, '%d/%m/%y - %H:%m') as data
 		FROM 
 			tb_chamado chamado
 			inner join tb_resposta_chamado resp on resp.id_chamado = chamado.id_chamado
@@ -74,7 +74,7 @@ class ChamadoDAO{
 	}
 	
 	public function GetRespostasDAO($idChamado){
-		$sqlStr = "SELECT mensagem, data, id_usuario, id_resposta FROM tb_resposta_chamado WHERE id_chamado = ". $idChamado ." ORDER BY id_resposta DESC";
+		$sqlStr = "SELECT mensagem, date_format(data, '%d/%m/%y - %H:%m') as data, id_usuario, id_resposta FROM tb_resposta_chamado WHERE id_chamado = ". $idChamado ." ORDER BY id_resposta DESC";
 		$result = mysqli_query($this->_conexao, $sqlStr);
 		if($result){
 			while($r=$result->fetch_assoc()){
