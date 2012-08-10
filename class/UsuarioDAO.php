@@ -1,5 +1,7 @@
 <?php
 
+include_once 'master.inc.php';
+
 class UsuarioDAO{
 
 	private $_conexao;
@@ -7,16 +9,12 @@ class UsuarioDAO{
 	public $nome;
 
 	function __construct() {
-		$this->_conexao = @new mysqli('localhost', 'root', '', 'helpdesk_comos');
-
-		if (!$this->_conexao) {
-			die('Não foi possível conectar: ' . mysql_error());
-		}
+		$this->_conexao = conectaComBanco();
 		
-		$result = mysqli_query($this->_conexao, "SELECT id_usuario, nome FROM tb_usuario WHERE hostname = '". gethostname() . "'");
+		$result = mysqli_query($this->_conexao, "SELECT id, nome FROM tb_usuario WHERE hostname = '". gethostname() . "'");
 		if($result){
 			while($r=$result->fetch_assoc()){
-				$this->id = $r['id_usuario'];
+				$this->id 	= $r['id'];
 				$this->nome = $r['nome'];
 			}
 		}
@@ -24,8 +22,8 @@ class UsuarioDAO{
 	}
 	
 	
-	public function GetUserByIdDAO($idUser){
-		$result = mysqli_query($this->_conexao, "SELECT nome FROM tb_usuario WHERE id_usuario = '". $idUser . "'");
+	public function GetUserByIDDAO($idUser){
+		$result = mysqli_query($this->_conexao, "SELECT nome FROM tb_usuario WHERE id = '". $idUser . "'");
 		if($result){
 			while($r=$result->fetch_assoc()){
 				return $r['nome'];

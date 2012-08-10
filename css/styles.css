@@ -19,3 +19,7 @@ textarea, .resposta {
 #resposta0{
 	background-color: #F5F5F5;
 }
+
+
+#tabela_categorias #descricao{width: 200px;}
+#tabela_categorias .center{align:"center";}

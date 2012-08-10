@@ -3,9 +3,9 @@
 include_once "ChamadoDAO.php";
 
 class Chamado{
-	public function CriarChamado($idUsuario, $titulo, $mensagem, $os){
+	public function CriarChamado($idUsuario, $titulo, $mensagem, $os, $categoria){
 		$chamadoDAO = new ChamadoDAO();
-		$chamadoDAO->CriarRespostaDAO($chamadoDAO->CriarChamadoDAO($idUsuario, $titulo, $os), $idUsuario, $mensagem);
+		$chamadoDAO->CriarRespostaDAO($chamadoDAO->CriarChamadoDAO($idUsuario, $titulo, $os, $categoria), $idUsuario, $mensagem);
 	}
 	
 	public function CriarResposta($idChamado, $idUsuario, $mensagem){

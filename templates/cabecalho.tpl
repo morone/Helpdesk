@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Comos - Helpdesk</title>
+<title>Helpdesk</title>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -26,6 +26,13 @@
 			<li><a href="index.php">Abrir</a></li>
 			<li><a href="atender.php">Atender</a></li>
 			<li><a href="consultar.php">Consultar</a></li>
+			<li><a href="#">Administra&ccedil;&atilde;o</a>
+				<ul>
+					<li><a href="categoria.php">Categorias</a></li>
+					<li><a href="#">Relat&oacute;rios</a></li>
+				</ul>	
+			</li>
+			
 		</ul>
 
 	</div>

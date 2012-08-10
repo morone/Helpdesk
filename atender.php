@@ -1,11 +1,10 @@
 <?php
 
-	include_once 'class/template.php';
-	include_once 'class/Usuario.php';
-	include_once 'class/Chamado.php';
+	include_once 'class/master.inc.php';
 
-	$usuario = new Usuario();
-	$chamado = new Chamado();
+	$usuario 	= new Usuario();
+	$chamado 	= new Chamado();
+	$categoria 	= new Categoria();
 	
 	$tplScripts = '<link rel="stylesheet" href="css/atender.css" media="screen" />';
 	
@@ -28,8 +27,8 @@
 				$class = "atendendo";
 			}
 		
-			$tplHelpdesks .= '<tr><td>'.$hd['id_chamado'].'</td><td>'.$hd['data'].'</td><td>'.$hd['usuario'].'</td><td>'.$hd['os'].'</td><td><a href="#'.$hd['id_chamado'].'" class="toggle id">'.utf8_encode($hd['titulo']).'</a></td><td>'.$atendimento.'</td><td>'.$atendente.'</td></tr>';
-			$tplHelpdesks .= '<tr id="'.$hd['id_chamado'].'" class="mensagem '.$class.'"><td colspan="8">'.utf8_encode($hd['mensagem']).'</td></tr>';
+			$tplHelpdesks .= '<tr><td>'.$hd['id_chamado'].'</td><td>'.$hd['data'].'</td><td>'.$hd['usuario'].'</td><td>'.$categoria->GetDescricao($hd['categoria']).'</td><td>'.$hd['os'].'</td><td><a href="#'.$hd['id_chamado'].'" class="toggle id">'.utf8_encode($hd['titulo']).'</a></td><td>'.$atendimento.'</td><td>'.$atendente.'</td></tr>';
+			$tplHelpdesks .= '<tr id="'.$hd['id_chamado'].'" class="mensagem '.$class.'"><td colspan="9">'.utf8_encode($hd['mensagem']).'</td></tr>';
 		endforeach;
 	endif;
 						

@@ -1,8 +1,6 @@
 <?php
 
-	include_once 'class/template.php';
-	include_once 'class/Usuario.php';
-	include_once 'class/Chamado.php';
+	include_once 'class/master.inc.php';
 
 	$usuario = new Usuario();
 	$chamado = new Chamado();

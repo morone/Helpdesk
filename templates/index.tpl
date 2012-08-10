@@ -8,8 +8,15 @@
 					
 					<legend>Por favor, preencha todos os campos</legend>
 					<div>
+					<label for="categoria">Categoria</label>
+						<select name="categoria" id="categoria" class="select">
+							{{CATEGORIA}}
+						</select>
+					</div>
+					<div>
 						<label for="os">Contrato</label>
 						<select name="os" id="os" class="select">
+							<option>(vazio)</option>
 							<option value="5048">5048 - COMPERJ</option>
 							<option value="5000">5000 - RNEST</option>
 						</select>
