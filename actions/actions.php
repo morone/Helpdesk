@@ -1,9 +1,11 @@
 <?php
 	include_once '../class/master.inc.php';
+	include_once '../class/Relatorio.php';
 	
 	$usuario 	= new Usuario();
 	$chamado 	= new Chamado();
 	$categoria 	= new Categoria();
+	$relatorio 	= new Relatorio();
 	
 	if(isset($_GET)):
 		switch ($_GET['action']):
@@ -11,11 +13,13 @@
 			case 'getRespostas':
 				$respostas = $chamado->GetRespostas($_GET['idChamado']);
 				$i=1;
-				foreach($respostas as $resp):
-					$tplRespostas .= "<div id='resposta".($i%2)."'><h3>". $resp['data'] ." - " . $usuario->GetUserByID($resp['usuario']) . ($i!=count($respostas)&& !$chamado->isFinalizado($_GET['idChamado'])?"&nbsp;<a href='?action=delresp&resposta=".$resp['id_resposta']."&id=".$_GET['idChamado']."'><img id='deletar' name='".$resp['data']."' src='images/delete.png' /></a>":"") . "</h3>";
-					$tplRespostas .= "" . utf8_encode($resp['mensagem']) . "</div>";
-					$i++;
-				endforeach;
+				if($respostas):
+					foreach($respostas as $resp):
+						$tplRespostas .= "<div id='resposta".($i%2)."'><h3>". $resp['data'] ." - " . $usuario->GetUserByID($resp['usuario']) . ($i!=count($respostas)&& !$chamado->isFinalizado($_GET['idChamado'])?"&nbsp;<a href='?action=delresp&resposta=".$resp['id_resposta']."&id=".$_GET['idChamado']."'><img id='deletar' name='".$resp['data']."' src='images/delete.png' /></a>":"") . "</h3>";
+						$tplRespostas .= "" . utf8_encode($resp['mensagem']) . "</div>";
+						$i++;
+					endforeach;
+				endif;
 				echo $tplRespostas;
 				break;
 			#GRAVA UMA NOVA RESPOSTA AO CHAMADO.
@@ -51,5 +55,23 @@
 					echo "Nenhuma Categoria Cadastrada";
 				endif;
 				break;
+			#RETORNA TODOS OS PONTOS DO GRÁFICO GERAL
+			case 'getPontosGeral':
+				$j=0;
+				for($i=7;$i<=19;$i++){
+					$pontos.=  $j . "@" . $relatorio->GetMediaAberturaPorHoraGeral($i) . "#";
+					$j++;
+				}
+					echo substr($pontos,0,-1);
+				break;
+			#RETORNA TODOS OS PONTOS DO GRÁFICO CATEGORIA
+			/*case 'getPontosCategoria':
+				$j=0;
+				for($i=7;$i<=19;$i++){
+					$pontos.=  $j . "@" . $relatorio->GetMediaAberturaPorHoraCategoria($i) . "#";
+					$j++;
+				}
+					echo substr($pontos,0,-1);
+				break;*/
 		endswitch;
 	endif;

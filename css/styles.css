@@ -23,3 +23,37 @@ textarea, .resposta {
 
 #tabela_categorias #descricao{width: 200px;}
 #tabela_categorias .center{align:"center";}
+
+
+#consulta .data{width:94px;}
+#consulta .nome{width:94px;}
+
+
+#relatorio .descricao{width:300px;}
+
+
+
+/* FILTROS */
+
+#searchForm{
+		background-color: #F0F0F0;
+		width: 865px;
+	}
+#filtros{
+
+	padding: 5px;
+	width: 865px;
+	text-align: center;
+	}
+#filtros #numeroChamado{
+	width: 50px;
+}
+#filtros .data, 
+#filtros #usuario, #filtros #categoria, #filtros #os,
+#filtros #status{
+	width: 100px;
+}
+
+#filtros #texto{
+	width: 200px;
+	}

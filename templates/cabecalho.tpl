@@ -13,6 +13,14 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/easy.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/ui/jquery-ui-1.8.23.custom.min.js"></script>
+<script type="text/javascript" src="js/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="js/ui/jquery.ui.datepicker.js"></script>
+<script type="text/javascript" src="js/ui/jquery.ui.widget.js"></script>
+<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.23.custom.css" media="screen">
+
+
+
 {{SCRIPTS}}
 </head>
 <body>
@@ -23,13 +31,13 @@
 		<h1>Helpdesk - {{USUARIO}}</h1>
 		
 		<ul id="nav">
-			<li><a href="index.php">Abrir</a></li>
+			<li><a href="principal.php">Abrir</a></li>
 			<li><a href="atender.php">Atender</a></li>
 			<li><a href="consultar.php">Consultar</a></li>
 			<li><a href="#">Administra&ccedil;&atilde;o</a>
 				<ul>
 					<li><a href="categoria.php">Categorias</a></li>
-					<li><a href="#">Relat&oacute;rios</a></li>
+					<li><a href="relatorio.php">Relat&oacute;rios</a></li>
 				</ul>	
 			</li>
 			

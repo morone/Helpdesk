@@ -21,8 +21,9 @@ class CategoriaDAO{
 	
 	public function CadastrarCategoriaDAO($categoria){
 		$this->_conexao = ConectaComBanco();
-		echo "INSERT INTO tb_categoria(descricao) VALUES('".$categoria."')";
-		return $this->_conexao->query("INSERT INTO tb_categoria(descricao) VALUES('".$categoria."')");
+		$statement = $this->_conexao->prepare("INSERT INTO tb_categoria(descricao) VALUES(?)");
+		$statement->bind_param('s', $categoria); 
+		return $statement->execute();
 		desconectaDoBanco($this->_conexao);
 	}
 	
@@ -43,7 +44,9 @@ class CategoriaDAO{
 	
 	public function DeletarDAO($id){
 		$this->_conexao = ConectaComBanco();
-		mysqli_query($this->_conexao, "DELETE FROM tb_categoria WHERE id = " . $id);
+		$statement = $this->_conexao->prepare("DELETE FROM tb_categoria WHERE id = ?");
+		$statement->bind_param('i', $id); 
+		$statement->execute();
 		desconectaDoBanco($this->_conexao);
 	}
 

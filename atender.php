@@ -13,21 +13,19 @@
 		header("location: atender.php");
 	endif;
 	
-	$helpdesk = $chamado->GetTodosChamados();
+	$helpdesk = $chamado->GetTodosChamados('', "0");
 	if($helpdesk):
 		foreach($helpdesk as $hd):
 		
 			if($hd['atendimento']==0){
 				$atendimento = "<a href='?action=atender&id=".$hd['id_chamado']."' class='tooltip' title='Atender'><img src='images/atender.png' /></a>";
-				$atendente = "-";
 				$class = "atender";
 			}else{
 				$atendimento = "<a href='detalhe.php?id=".$hd['id_chamado']."' class='tooltip' title='Em Atendimento'><img  src='images/atendendo.png' /></a>";
-				$atendente = $usuario->GetUserById($hd['atendimento']);
 				$class = "atendendo";
 			}
 		
-			$tplHelpdesks .= '<tr><td>'.$hd['id_chamado'].'</td><td>'.$hd['data'].'</td><td>'.$hd['usuario'].'</td><td>'.$categoria->GetDescricao($hd['categoria']).'</td><td>'.$hd['os'].'</td><td><a href="#'.$hd['id_chamado'].'" class="toggle id">'.utf8_encode($hd['titulo']).'</a></td><td>'.$atendimento.'</td><td>'.$atendente.'</td></tr>';
+			$tplHelpdesks .= '<tr><td>'.$hd['id_chamado'].'</td><td>'.$hd['data_abertura'].'</td><td>'.$hd['usuario'].'</td><td>'.$categoria->GetDescricao($hd['categoria']).'</td><td>'.$hd['os'].'</td><td><a href="#'.$hd['id_chamado'].'" class="toggle id">'.utf8_encode($hd['titulo']).'</a></td><td>'.$atendimento.'</td><td>'.$hd['atendente'].'</td></tr>';
 			$tplHelpdesks .= '<tr id="'.$hd['id_chamado'].'" class="mensagem '.$class.'"><td colspan="9">'.utf8_encode($hd['mensagem']).'</td></tr>';
 		endforeach;
 	endif;
