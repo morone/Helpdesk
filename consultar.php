@@ -31,7 +31,10 @@
 		header("location: consultar.php");
 	endif;
 	
-	$helpdesk = $chamado->GetTodosChamados($_SESSION['filtros']);
+	if(($_SESSION['grupo']=="TI")||($_SESSION['grupo']=="ADMIN"))
+		$tplInputUsuario = '<input type="text" id="usuario" name="usuario" placeholder="Usu&aacute;rio" value="{{USUARIO_FILTRO}}" class="field"/>';
+	
+	$helpdesk = $chamado->GetTodosChamados($_SESSION['filtros'], ($_SESSION['grupo']=="USUARIO"? $usuario->GetId($_SESSION['login']): '') );
 	if($helpdesk):
 		foreach($helpdesk as $hd):
 		
@@ -81,12 +84,14 @@
 	$pagina->trocarTags( array(
 		'CABECALHO'				=> 	'templates/cabecalho.tpl',
 		'RODAPE'				=> 	'templates/rodape.tpl',
+		'MENU'					=> getMenu(),
 		'SCRIPTS'				=> 	$tplScripts,
 		'CATEGORIA'				=>	$tplCategoria,
-		'USUARIO' 				=> 	$usuario->GetNome(),
+		'USUARIO' 				=> 	$usuario->GetNome($_SESSION['login']),
 		'HELPDESKS'				=> 	$tplHelpdesks,
 		'OS_SELECT'				=>	$tplOsSelect,
 		'STATUS'				=>	$tplStatus,
+		'INPUT_USUARIO'			=>	$tplInputUsuario,
 		'NUMERO_CHAMADO'		=>	$_SESSION['filtros']['numeroChamado'],
 		'USUARIO_FILTRO'		=> 	$_SESSION['filtros']['usuario'],
 		'TEXTO'					=>	$_SESSION['filtros']['texto'],

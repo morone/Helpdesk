@@ -18,8 +18,9 @@
 	$pagina->trocarTags( array(
 		'CABECALHO'			=> 	'templates/cabecalho.tpl',
 		'RODAPE'			=> 	'templates/rodape.tpl',
+		'MENU'				=> getMenu(),
 		'SCRIPTS'			=>	$tplScripts,
-		'USUARIO' 			=> 	$usuario->GetNome(),
+		'USUARIO' 			=> 	$usuario->GetNome($_SESSION['login']),
 	));
 	
 	$pagina->mostrar(); 

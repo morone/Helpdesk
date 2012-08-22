@@ -1,0 +1,14 @@
+#container{	width: 100%;height: 100%;}
+.main{
+		position: absolute;
+		width: 500px;
+		height: 500px;
+		margin-left: 50%;
+		left: -250px;
+		margin-top: 50%;
+		top: -250px;
+		text-align:center;
+	}
+
+.main h2{text-align:center;}
+.main input[type="text"], .main input[type="password"]{width: 150px;}

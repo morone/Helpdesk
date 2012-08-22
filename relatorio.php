@@ -50,12 +50,13 @@
 	$pagina->trocarTags( array(
 		'CABECALHO'				=> 	'templates/cabecalho.tpl',
 		'RODAPE'				=> 	'templates/rodape.tpl',
+		'MENU'					=> getMenu(),
 		'SCRIPTS'				=> 	$tplScripts,
 		'MEDIA_GERAL'			=>	$tplMediaGeral,
 		'MEDIA_POR_CATEGORIA'	=>  $tplMediaPorCategoria,
 		'ABERTURA_GERAL'		=>	$tplAberturaGeral,
 		'ABERTURA_CATEGORIA'	=>	$tplAberturaCategoria, 
-		'USUARIO' 				=> 	$usuario->GetNome(),
+		'USUARIO' 				=> 	$usuario->GetNome($_SESSION['login']),
 	));
 	
 	$pagina->mostrar(); 

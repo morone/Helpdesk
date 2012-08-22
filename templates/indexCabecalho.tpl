@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Helpdesk</title>
@@ -19,20 +19,15 @@
 <script type="text/javascript" src="js/ui/jquery.ui.widget.js"></script>
 <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.23.custom.css" media="screen">
 
+<link rel="stylesheet" type="text/css" href="api/shadowbox-3.0.3/shadowbox.css">
+<script type="text/javascript" src="api/shadowbox-3.0.3/shadowbox.js"></script>
+<script type="text/javascript">
+	Shadowbox.init();
+</script>
+
 
 
 {{SCRIPTS}}
 </head>
 <body>
 <div id="container">
-	
-	<div id="header">
-		
-		<h1>Helpdesk - {{USUARIO}}</h1>
-			<ul id="nav">
-				{{MENU}}
-			</ul>
-
-	</div>
-	
-	<div class="content">

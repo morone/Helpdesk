@@ -1,6 +1,7 @@
 <?php
 
 include_once "ChamadoDAO.php";
+include_once "Usuario.php";
 include_once "data.php";
 
 class Chamado{
@@ -20,6 +21,8 @@ class Chamado{
 	
 	public function GetTodosChamados($filtros="", $idUsuario="", $todosChamados=""){
 		$chamadoDAO = new ChamadoDAO();
+		$usuario = new Usuario();
+
 		$chamados = $chamadoDAO->GetTodosChamadosDAO($filtros, $idUsuario, $todosChamados);
 		
 		for($i=0;$i<sizeof($chamados);$i++):

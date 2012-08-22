@@ -8,7 +8,7 @@
 				
 					<input type="text" id="numeroChamado" name="numeroChamado"  placeholder="Num" value="{{NUMERO_CHAMADO}}" class="field"/>
 
-					<input type="text" id="usuario" name="usuario" placeholder="Usu&aacute;rio" value="{{USUARIO_FILTRO}}" class="field"/>
+					{{INPUT_USUARIO}}
 					
 					<select name="categoria" id="categoria" name="categoria" class="select">
 						{{CATEGORIA}}

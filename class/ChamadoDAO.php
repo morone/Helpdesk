@@ -32,7 +32,7 @@ class ChamadoDAO{
 	
 	public function AtenderChamadoDAO($idChamado){
 		$this->usuario = new Usuario();
-		mysqli_query($this->_conexao, "UPDATE tb_chamado SET id_atendente = ".$this->usuario->GetId()." WHERE id =".$idChamado);
+		mysqli_query($this->_conexao, "UPDATE tb_chamado SET id_atendente = ".$this->usuario->GetId($_SESSION['login'])." WHERE id =".$idChamado);
 		desconectaDoBanco($this->_conexao);
 	}
 	

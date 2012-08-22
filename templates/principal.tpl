@@ -33,7 +33,6 @@
 				<div class="submit"><button type="submit" id="enviar">Enviar</button></div>						
 			
 			{{MENSAGEM}}
-			<p class="error" id="erro">Erro ao abrir o helpdesk, entre em contato com TI!</p>
 			
 			</form>			
 		</div>

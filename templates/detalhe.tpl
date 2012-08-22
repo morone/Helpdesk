@@ -15,7 +15,6 @@
 									
 			{{CAIXA_RESPOSTA}}
 			{{MENSAGEM}}
-			<p class="error" id="erro">Erro ao abrir o helpdesk, entre em contato com TI!</p>
 		</div>
 		
 {{RODAPE}}
