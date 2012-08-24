@@ -11,6 +11,7 @@
 				</fieldset>
 				<div class="submit"><button type="submit" id="enviar">Entrar</button></div>
 			</form>
-			<a href="principal.php" rel="shadowbox;height=500;width=500">Alterar Senha</a>
+			{{MENSAGEM}}
+			<a rel="shadowbox;width=400;height=300" href="senha.php">Alterar Senha</a>
 		</div>
 {{RODAPE}}

@@ -1,7 +1,5 @@
 <?php
 	include_once 'class/master.inc.php';
-
-	$tplScripts = '<link rel="stylesheet" href="css/index.css" media="screen" />';
 	
 	$usuario = new Usuario();
 	
@@ -10,6 +8,8 @@
 		if($id):
 			$_SESSION['login'] = $id;
 			header('location:actions/logar.php');
+		else:
+			$tplMensagem = '<p class="error" id="erro">Login ou senha inv&aacute;lidos.</p>';
 		endif;
 	endif;
 	
@@ -18,7 +18,7 @@
 	$pagina->trocarTags( array(
 		'CABECALHO'		=> 	'templates/indexCabecalho.tpl',
 		'RODAPE'		=> 	'templates/rodapeCabecalho.tpl',
-		'SCRIPTS'		=> 	$tplScripts,
+		'MENSAGEM'		=>	$tplMensagem,
 	));
 	
 	$pagina->mostrar(); 

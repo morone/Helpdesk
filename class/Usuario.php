@@ -26,9 +26,19 @@ class Usuario{
 		return $usuarioDAO->ValidaUsuarioDAO($login, md5($senha));
 	}
 	
+	public function ExcluirUsuario($id){
+		$usuarioDAO = new UsuarioDAO();
+		return $usuarioDAO->ExcluirUsuarioDAO($id);
+	}
+	
 	public function GetTodosUsuarios(){
 		$usuarioDAO = new UsuarioDAO();
 		return $usuarioDAO->GetTodosUsuariosDAO();
+	}
+	
+	public function ResetarSenha($id){
+		$usuarioDAO = new UsuarioDAO();
+		return $usuarioDAO->ResetarSenhaDAO($id);
 	}
 	
 	public function CadastrarUsuario($nome, $login, $ramal, $email, $grupo){
@@ -39,6 +49,12 @@ class Usuario{
 		else:
 			return 0;
 		endif;
+	}
+	
+	public function AlterarSenha($login, $novasenha){
+		$usuarioDAO = new UsuarioDAO();
+		$novasenha = md5($novasenha);
+		return $usuarioDAO->AlterarSenhaDAO($login, $novasenha);
 	}
 
 }

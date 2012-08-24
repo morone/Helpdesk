@@ -48,12 +48,13 @@
 					<caption>Helpdesks abertos</caption>
 						<thead>
 							<tr>
-								<th>ID</th>
+								<th class="center">ID</th>
 								<th>Login</th>
 								<th>Nome</th>
-								<th>Ramal</th>
+								<th class="center">Ramal</th>
 								<th>Email</th>
-								<th>Grupo</th>
+								<th class="center">Grupo</th>
+								<th>Ferramentas</th>
 							</tr>
 						</thead>
 					<tbody>

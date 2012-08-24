@@ -27,7 +27,7 @@
 		}
 	endif;
 	
-	if (!in_array(preg_replace('/.*\/(.*)$/', '$1', $_SERVER['PHP_SELF']), array('index.php',)) && (!isset($_SESSION['login']))) {  //verifica se a sessão com login está aberta
+	if (!in_array(preg_replace('/.*\/(.*)$/', '$1', $_SERVER['PHP_SELF']), array('index.php','senha.php',)) && (!isset($_SESSION['login']))) {  //verifica se a sessão com login está aberta
 		header('location:index.php'); //se não estiver volta para tela de login
 		die();
 	}

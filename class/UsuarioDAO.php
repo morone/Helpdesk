@@ -26,6 +26,7 @@ class UsuarioDAO{
 	####################################
 	
 	
+	
 	public function GetIdDAO($login){
 		$result = mysqli_query($this->_conexao, "SELECT id FROM tb_usuario WHERE login = '". $login . "'");
 		
@@ -57,7 +58,7 @@ class UsuarioDAO{
 	
 	public function ValidaUsuarioDAO($login, $senha){
 		$this->_conexao = conectaComBanco();
-		$sqlStr = "SELECT login FROM tb_usuario WHERE login = ? and senha = ?";
+		$sqlStr = "SELECT login FROM tb_usuario WHERE login = ? and senha = ? and STATUS = 'ATIVO'";
 		$stmt = $this->_conexao->prepare($sqlStr);
 		$stmt->bind_param('ss', $login, $senha); 
 		$stmt->bind_result($ias);
@@ -74,7 +75,7 @@ class UsuarioDAO{
 	
 	public function GetTodosUsuariosDAO(){
 		
-		$sqlStr = "SELECT id, login, nome, grupo, ramal, email FROM tb_usuario ORDER BY id";
+		$sqlStr = "SELECT id, login, nome, grupo, ramal, email FROM tb_usuario WHERE status = 'ATIVO' ORDER BY id";
 		
 		$result = mysqli_query($this->_conexao, $sqlStr);
 		if($result){
@@ -87,10 +88,34 @@ class UsuarioDAO{
 	
 	}
 	
+	public function ExcluirUsuarioDAO($id){
+		$stmt = $this->_conexao->prepare("UPDATE tb_usuario SET status = 'INATIVO' WHERE id = ?");
+		$stmt->bind_param('i', $id); 
+		$stmt->execute();
+		desconectaDoBanco($this->_conexao);
+	}
+	
+	public function ResetarSenhaDAO($id){
+		$stmt = $this->_conexao->prepare("UPDATE tb_usuario SET senha = ? WHERE id = ?");
+		$novaSenha = md5('1234');
+		$stmt->bind_param('si', $novaSenha, $id); 
+		$stmt->execute();
+		desconectaDoBanco($this->_conexao);
+	}
+	
+	
 	public function CadastrarUsuarioDAO($nome, $login, $ramal, $email, $grupo, $senha){
 		
 		$stmt = $this->_conexao->prepare("INSERT INTO tb_usuario(nome, login, ramal, email, grupo, senha) VALUES(?,?,?,?,?,?)");
 		$stmt->bind_param('ssssss', $nome, $login, $ramal, $email, $grupo, $senha); 
+		$stmt->execute();
+		return $this->_conexao->insert_id;
+		desconectaDoBanco($this->_conexao);
+	}
+	
+	public function AlterarSenhaDAO($login, $senha){
+		$stmt = $this->_conexao->prepare("UPDATE tb_usuario SET senha = ? WHERE login = ?");
+		$stmt->bind_param('ss', $senha, $login); 
 		$stmt->execute();
 		return $this->_conexao->insert_id;
 		desconectaDoBanco($this->_conexao);

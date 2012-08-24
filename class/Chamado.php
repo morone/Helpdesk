@@ -96,6 +96,11 @@ class Chamado{
 	}
 	######################
 	
+	public function AlterarCategoria($idChamado, $categoria){
+		$chamadoDAO = new ChamadoDAO();
+		$chamadoDAO->AlterarCategoriaDAO($idChamado, $categoria);
+	}
+	
 	public function AtenderChamado($idChamado){
 		$chamadoDAO = new ChamadoDAO();
 		$chamadoDAO->AtenderChamadoDAO($idChamado);

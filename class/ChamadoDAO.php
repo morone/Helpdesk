@@ -36,6 +36,12 @@ class ChamadoDAO{
 		desconectaDoBanco($this->_conexao);
 	}
 	
+	public function AlterarCategoriaDAO($idChamado, $categoria){
+		$this->usuario = new Usuario();
+		mysqli_query($this->_conexao, "UPDATE tb_chamado SET categoria = ".$categoria.", id_atendente = 0 WHERE id =".$idChamado);
+		desconectaDoBanco($this->_conexao);
+	}
+	
 	public function GetTodosChamadosDAO($filtros="", $idUsuario="", $finalizado=""){
 		$sqlStr = "SELECT 
 				chamado.id, 
