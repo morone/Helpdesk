@@ -17,7 +17,7 @@
 	$pagina = new Template('templates/index.tpl');
 	$pagina->trocarTags( array(
 		'CABECALHO'		=> 	'templates/indexCabecalho.tpl',
-		'RODAPE'		=> 	'templates/rodapeCabecalho.tpl',
+		'RODAPE'		=> 	'templates/indexRodape.tpl',
 		'MENSAGEM'		=>	$tplMensagem,
 	));
 	

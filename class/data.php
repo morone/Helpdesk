@@ -1,4 +1,7 @@
 <?php
+/*****
+ * Desenvolvido por: Bruno da Silva Assis
+ ****/
 class Data
 {
 	private static function _explodirData($data, $formatoEntrada='BR', $formatoSaida='BR', $separador='-')

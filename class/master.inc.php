@@ -5,7 +5,7 @@
 	if (!function_exists('conectaComBanco')): 
 		function conectaComBanco($forcarContrato='')
 		{
-			$conexao = @new mysqli('localhost', 'root', '', 'helpdesk_comos');
+			$conexao = @new mysqli('localhost', 'root', '', 'helpdesk');
 
 			if (!$conexao) {
 				die('<br /><br /><strong>Problema com a conexão no Banco de Dados. Favor contatar o Administrador.</strong>');

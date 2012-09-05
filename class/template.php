@@ -1,4 +1,7 @@
 <?php
+/*****
+ * Desenvolvido por: Bruno da Silva Assis
+ ****/
 class Template
 {
 	private $_pagina;
